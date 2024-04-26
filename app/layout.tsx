@@ -1,34 +1,41 @@
-import type { Metadata, Viewport } from "next";
-import { Inter as FontSans } from "next/font/google";
-import { IBM_Plex_Mono as FontMono } from "next/font/google";
-import "./globals.css";
+import type { Metadata, Viewport } from "next"
+import { IBM_Plex_Mono as FontMono, Inter as FontSans } from "next/font/google"
+
+import "./globals.css"
+
+import { cn } from "@/lib/utils"
+
+import { Providers } from "./providers"
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
-});
+})
 
 const fontMono = FontMono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-mono",
-});
+})
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`bg-[#011627] text-white font-sans antialiased
-          ${fontSans.variable} ${fontMono.variable}`}
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable,
+          fontMono.variable
+        )}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
-  );
+  )
 }
 
 export const viewport: Viewport = {
@@ -37,10 +44,10 @@ export const viewport: Viewport = {
   maximumScale: 1,
   userScalable: false,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#000000" },
-    { media: "(prefers-color-scheme: dark)", color: "#030712" },
+    { media: "(prefers-color-scheme: light)", color: "#011627" },
+    { media: "(prefers-color-scheme: dark)", color: "#011627" },
   ],
-};
+}
 
 export const metadata: Metadata = {
   title: "The Editor",
@@ -50,4 +57,4 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: "black-translucent",
   },
-};
+}

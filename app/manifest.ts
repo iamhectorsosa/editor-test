@@ -1,4 +1,4 @@
-import { MetadataRoute } from "next";
+import { MetadataRoute } from "next"
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -7,6 +7,6 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "The Editor",
     start_url: "/",
     display: "fullscreen",
-    background_color: "#E0E0E0",
-  };
+    background_color: "#011627",
+  }
 }
