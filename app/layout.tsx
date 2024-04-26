@@ -43,7 +43,6 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("/"),
   title: "The Editor",
   description: "A Minimal editor",
   appleWebApp: {
